@@ -1,29 +1,32 @@
 package org.parthvnp.Tree;
 
 
-public class TreeNode<T> {
-    public T value;
-    public TreeNode<T> left;
-    public TreeNode<T> right;
+public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
-    public TreeNode(T value) {
-        this.value = value;
+    public TreeNode(int val) {
+        this.val = val;
     }
 
+    public TreeNode(int val, TreeNode left, TreeNode right){
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
 
-
-    public void add(TreeNode<T> node, TreeNode<T> left, TreeNode<T> right) {
+    public void add(TreeNode node, TreeNode left, TreeNode right) {
         node.left = left;
         node.right = right;
     }
 
-    public TreeNode<T> FromArray(T[] values) {
-        var nodes = (TreeNode<T>[])new Object[values.length];
-        for(int i = 0; i < values.length; i++){
-            nodes[i] = new TreeNode<T>(values[i]);
-        }
-        for(int i = 0; i < values.length; i++){
-        }
-        return null;
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
     }
 }

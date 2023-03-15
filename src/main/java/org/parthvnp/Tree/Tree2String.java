@@ -9,7 +9,7 @@ public class Tree2String {
 
     public void tree2StrHelper(TreeNode node){
         if (node != null) {
-            sb.append(node.value);
+            sb.append(node.val);
             if(node.left != null ){
                 sb.append("(");
             }
