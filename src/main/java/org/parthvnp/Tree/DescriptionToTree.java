@@ -78,19 +78,45 @@ public class DescriptionToTree {
         }
     }
 
-    public TreeNode createBinaryTree(int[][] description){
-        if(description.length == 0) return null;
+    public TreeNode createBinaryTree(int[][] description) {
+        if (description.length == 0) return null;
         var root = findRoot(findParents(description), findChildren(description));
         var nodes = findNodes(description);
         buildAncestry(description, nodes);
         return nodes.get(root);
     }
 
+    public TreeNode createBinaryTree2(int[][] description) {
+        HashMap<Integer, TreeNode> map = new HashMap<>();
+        HashSet<Integer> children = new HashSet<>();
+        for (int[] i : description) {
+            int parent = i[0], child = i[1], isLeft = i[2];
+            var parentNode = map.getOrDefault(parent, new TreeNode(parent));
+            children.add(child);
+            if (isLeft == 1) {
+                parentNode.left = map.getOrDefault(child, new TreeNode(child));
+                map.put(child, parentNode.left);
+            } else {
+                parentNode.right = map.getOrDefault(child, new TreeNode(child));
+                map.put(child, parentNode.right);
+            }
+            map.put(parent, parentNode);
+        }
+        TreeNode root = null;
+        for (int[] j : description) {
+            if (!children.contains(j[0])) {
+                root = map.getOrDefault(j[0], null);
+                break;
+            }
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
         // [[1,2,1],[2,3,0],[3,4,1]]
-        int[][] descriptions = new int[][]{};
+        int[][] descriptions = new int[][]{new int[]{1,2,1}, new int[]{2,3,0}, new int[]{3,4,1}};
         var s = new DescriptionToTree();
-        var rootNode = s.createBinaryTree(descriptions);
+        var rootNode = s.createBinaryTree2(descriptions);
         System.out.println(rootNode);
     }
 }
