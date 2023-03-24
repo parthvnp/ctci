@@ -17,6 +17,7 @@ class UniqueMorseCode:
 
         return count_transformations(words)
 
+
 if __name__ == "__main__":
     s = UniqueMorseCode()
     r = s.uniqueMorseRepresentations(["a"])
