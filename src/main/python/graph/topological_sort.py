@@ -21,5 +21,5 @@ class TopologicalSort:
 
 if __name__ == '__main__':
     s = TopologicalSort()
-    r = s.sort(5, [[4,2], [4,3], [2,1], [3,2]])
+    r = s.sort(2, [[1, 0], [0,1]])
     print(r)
