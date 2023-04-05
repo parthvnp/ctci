@@ -63,3 +63,4 @@ if __name__ == '__main__':
     print(e2, e2 == 1)
     e3 = s.longestCycleKahn([2, -1, 3, 1])
     print(e3, e3 == -1)
+    print(e3 == -1)
