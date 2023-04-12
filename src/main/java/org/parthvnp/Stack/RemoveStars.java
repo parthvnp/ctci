@@ -16,7 +16,6 @@ public class RemoveStars {
     public static void main(String[] args) {
         var s = new RemoveStars();
         var r = s.removeStars("a*b**c");
-        System.out.println(r);
         System.out.println(r.equals("c"));
     }
 }
