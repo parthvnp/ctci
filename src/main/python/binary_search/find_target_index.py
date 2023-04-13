@@ -10,6 +10,7 @@ class FindTargetIndex:
         # Binary Search 1:
         if nums[0] == target and nums[0] == nums[-1]:
             return list(range(len(nums)))
+
         while left <= right:
             mid = left + (right - left) // 2
             if nums[mid] > target:
