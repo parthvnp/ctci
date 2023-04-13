@@ -19,3 +19,5 @@ if __name__ == '__main__':
     print(e1)
     e2 = s.validateStackSequences([1, 2, 3, 4, 5], [4, 3, 5, 1, 2])
     print(e2)
+    e3 = s.validateStackSequences([1, 2, 3, 4, 5], [5,4,3,2,1])
+    print(e3)
