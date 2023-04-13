@@ -24,5 +24,7 @@ public class ValidStackSequence {
         System.out.println(e1);
         var e2 = s.validateStackSequences(new int[]{1, 2, 3, 4, 5}, new int[]{4, 3, 5, 1, 2});
         System.out.println(e2);
+        var e3 = s.validateStackSequences(new int[]{1, 2, 3, 4, 5}, new int[]{5,4,3,2,1});
+        System.out.println(e3);
     }
 }
