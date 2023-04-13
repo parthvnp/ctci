@@ -1,4 +1,4 @@
-package BinarySearch;
+package org.parthvnp.BinarySearch;
 
 import java.util.Arrays;
 
