@@ -9,10 +9,10 @@ class MaxZigZagPath:
     def longestZigZag(self, root: Optional[TreeNode]) -> int:
         self.pathLength = 0
 
-        def dfs(node, goLeft, steps):
+        def dfs(node, go_left, steps):
             if node:
                 self.pathLength = max(self.pathLength, steps)
-                if goLeft:
+                if go_left:
                     dfs(node.left, False, steps + 1)
                     dfs(node.right, True, 1)
                 else:
