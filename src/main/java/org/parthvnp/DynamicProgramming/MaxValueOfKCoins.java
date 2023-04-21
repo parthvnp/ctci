@@ -1,4 +1,4 @@
-package org.parthvnp.DP;
+package org.parthvnp.DynamicProgramming;
 
 import java.util.*;
 
