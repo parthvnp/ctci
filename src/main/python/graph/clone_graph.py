@@ -1,6 +1,5 @@
 from collections import deque
-from typing import *
-from libgraph import construct
+from graph_lib import construct
 
 
 class Node:
@@ -34,5 +33,5 @@ if __name__ == '__main__':
     s = CloneGraph()
     g = construct([[2, 4], [1, 3], [2, 4], [1, 3]], 1)
     print(g)
-    r = s.cloneGraph([[2, 4], [1, 3], [2, 4], [1, 3]])
+    r = s.cloneGraph(g)
     print(r)
