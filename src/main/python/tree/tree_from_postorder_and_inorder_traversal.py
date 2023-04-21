@@ -1,6 +1,6 @@
 from typing import *
 
-from tree_lib import print_inorder, TreeNode
+from tree_lib import inorder, TreeNode
 
 
 class Solution:
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     postorder = [2, 1, 4, 3]
     s = Solution()
     r = s.buildTree(inorder, postorder)
-    print_inorder(r)
+    inorder(r)

@@ -1,11 +1,37 @@
 from collections import deque
 
 
-def print_inorder(root):
-    if root:
-        print_inorder(root.left)
-        print(root.val)
-        print_inorder(root.right)
+def inorder(root):
+    values = []
+
+    def traverse(rt):
+        if rt:
+            traverse(rt.left)
+            values.append(rt.val)
+            traverse(rt.right)
+
+    traverse(root)
+    return values
+
+
+def level_order(root):
+    values = []
+
+    def traverse(rt):
+        if not rt:
+            return
+        q = deque()
+        q.append(rt)
+        while q:
+            node = q.popleft()
+            values.append(node.val)
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+
+    traverse(root)
+    return values
 
 
 class TreeNode:
@@ -43,4 +69,3 @@ def list_to_tree(lst, index=0):
     root.right = list_to_tree(lst, 2 * index + 2)
 
     return root
-
