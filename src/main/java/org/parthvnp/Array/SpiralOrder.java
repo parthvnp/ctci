@@ -63,7 +63,24 @@ public class SpiralOrder {
         return output;
     }
 
-    public List<Integer> spiralOrderRecursive()
+    public List<Integer> spiralOrderRecursive(int[][] matrix) {
+        List<Integer> output = new ArrayList<>();
+        recursiveSpiral(matrix, 0, matrix.length - 1, 0, matrix[0].length - 1, output);
+        return output;
+    }
+
+    public void recursiveSpiral(int[][] matrix, int rowStart, int rowEnd, int colStart, int colEnd, List<Integer> output) {
+        if (rowStart > rowEnd || colStart > colEnd) return;
+        for (int i = colStart; i <= colEnd; i++) output.add(matrix[rowStart][i]);
+        for (int i = rowStart + 1; i <= rowEnd; i++) output.add(matrix[i][colEnd]);
+        if (rowStart != rowEnd) {
+            for (int i = colEnd - 1; i >= colStart; i--) output.add(matrix[rowEnd][i]);
+        }
+        if (colStart != colEnd) {
+            for (int i = rowEnd - 1; i > rowStart; i--) output.add(matrix[i][colStart]);
+        }
+        recursiveSpiral(matrix, rowStart + 1, rowEnd - 1, colStart + 1, colEnd - 1, output);
+    }
 
     public static void main(String[] args) {
         var s = new SpiralOrder();
