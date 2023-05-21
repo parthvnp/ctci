@@ -11,7 +11,8 @@ class ShortestBridge:
         # reached the edge of the island, i.e. there are no more 1s. Once this first island is found we stop searching.
 
         def dfs(i, j):
-            if i < 0 or j < 0 or i >= m or j >= n or (i, j) in seen or grid[i][j] != 1: return
+            if i < 0 or j < 0 or i >= m or j >= n or (i, j) in seen or grid[i][j] != 1:
+                return
             seen.add((i, j))
             q.append((i, j, 0))
             grid[i][j] = -1
@@ -30,7 +31,7 @@ class ShortestBridge:
             for x, y in (i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1):
                 if 0 <= x < m and 0 <= y < n and (x, y) not in seen:
                     seen.add((x, y))
-                    q += (x, y, h + 1),
+                    q += ((x, y, h + 1),)
         return -1
 
 
