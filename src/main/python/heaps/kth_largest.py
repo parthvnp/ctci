@@ -1,20 +1,22 @@
 from typing import *
 from collections import *
 from shared.test import test
-from heapq import heappush, heappop
+from heapq import heappush, heappop, heapify
 
 
 class KthLargest:
     def __init__(self, k: int, nums: List[int]):
         self.k = k
-        self.heap = []
-        for n in nums:
-            heappush(self.heap, n)
+        self.heap = nums
+        heapify(self.heap)
+        while len(self.heap) > k:
+            heappop(self.heap)
 
     def add(self, val: int) -> int:
         heappush(self.heap, val)
-        print(self.heap)
-        return self.heap[-self.k]
+        if len(self.heap) > self.k:
+            heappop(self.heap)
+        return self.heap[0]
 
 
 if __name__ == "__main__":
