@@ -4,7 +4,7 @@ from shared.test import test
 
 class GetAverages:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
-        # When a single element is considered then its averafge will be the number itself only.
+        # When a single element is considered then its average will be the number itself only.
         if k == 0:
             return nums
 
@@ -21,8 +21,8 @@ class GetAverages:
         for i in range(n):
             prefix[i + 1] = prefix[i] + nums[i]
 
-        # We iterate only on those indices which have atleast 'k' elements in their left and right.
-        # i.e. indices from 'k' to 'n - k'
+        # We iterate only on those indices which have at least 'k' elements in their left and right.
+        # i.e. indices from 'k' to 'n - k' (both inclusive).
         for i in range(k, n - k):
             leftBound, rightBound = i - k, i + k
             subArraySum = prefix[rightBound + 1] - prefix[leftBound]
